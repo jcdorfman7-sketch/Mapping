@@ -1,18 +1,9 @@
 {
   "name": "Augsburg Adventure Radius",
   "short_name": "Augsburg Trips",
-  "description": "Interactive drive and train trip planner centered on Augsburg.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f5f3ed",
-  "theme_color": "#263c34",
-  "icons": [
-    {
-      "src": "./icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
-  ]
+  "theme_color": "#243a32"
 }
