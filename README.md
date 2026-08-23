@@ -1,4 +1,6 @@
-# V12.3 runtime fix
-Root cause fixed: V12.2 called closeDetails() during startup before `selectedMasterId` had been initialized. JavaScript's temporal-dead-zone rules caused a ReferenceError, halting the entire application before markers, master-list results, and button handlers initialized.
+# V12.4 — live repository fix
+The deployed V12.3 index.html was inspected directly in GitHub.
 
-V12.3 declares state before use and establishes the initial closed-details layout without calling map-dependent code before Leaflet is constructed.
+Root cause: the JavaScript bound a click handler to `#collapseFilters`, but the actual HTML did not contain `#collapseFilters` or `#filterBody`. `document.getElementById("collapseFilters").onclick = ...` therefore threw immediately and halted initialization before marker creation, master-list rendering, and the remaining button handlers.
+
+V12.4 restores the missing filter header/body markup and makes the collapse binding defensive so an optional missing control cannot kill the application again.
