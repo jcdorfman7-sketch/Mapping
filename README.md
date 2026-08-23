@@ -12,5 +12,3 @@
 - V8 performance architecture retained: markers are created once rather than recreated on zoom.
 
 Upload index.html, manifest.webmanifest, sw.js and README.md to the Mapping repo root.
-
-- Pronounced international country-border overlay using Natural Earth 1:50m boundary lines; non-interactive and layered below markers.
