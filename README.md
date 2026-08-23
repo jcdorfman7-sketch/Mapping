@@ -1,19 +1,16 @@
-# Augsburg Adventure Radius V8
+# Augsburg Adventure Radius V9
 
-Stability + discovery rebuild.
+## Major additions
+- Larger, high-contrast, mobile-friendly attraction markers.
+- Priority system: Essential / Major / Hidden Gem / Worthwhile / Nearby.
+- Persistent ❤️ Favorites and 🚫 Skip lists using browser localStorage.
+- Saved attractions get a visible highlight.
+- Persistent 🧳 Mini Trips: create a named trip, add attractions/foods, add days, and move items to the next day.
+- Vienna upgraded to a full destination hub with 20 researched sights, including major imperial/art icons and unusual architecture.
+- Vienna food database added; food intel expanded for Salzburg, Budapest and Prague.
+- Existing V8 flight and ground databases retained.
+- V8 performance architecture retained: markers are created once rather than recreated on zoom.
 
-- Fixes the broken Flights toggle.
-- Drive / Train / Flights are independent and may all be off.
-- Filters are separated into Travel Mode, Ground Time, What To Do, Flight Price, and Airport rows.
-- Zoom performance rebuilt: 87 ground markers are created once; zooming does not destroy/recreate them.
-- Mobile bottom-sheet details with Overview / See / Eat / Trips tabs.
-- Food is a visible first-class feature.
-- Rome includes ❤️ La Fata Ignorante as a Personal Favorite.
-- Flight markers show city + fare.
-- Adds Oslo and Barcelona to the flight dataset.
-- Dublin includes an observed $84 RT MUC–DUB example for Nov 13–21, 2026.
-- Fare filters: $75 / $100 / $125 / $150 / $200.
-- FMM / MUC / Either filter.
-- New service-worker cache strategy reduces stale-version problems.
+Upload index.html, manifest.webmanifest, sw.js and README.md to the Mapping repo root.
 
-Upload/replace index.html, manifest.webmanifest, sw.js, README.md in the Mapping repository root and commit.
+- Pronounced international country-border overlay using Natural Earth 1:50m boundary lines; non-interactive and layered below markers.
