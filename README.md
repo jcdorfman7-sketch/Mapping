@@ -1,2 +1,12 @@
-# Augsburg Adventure Radius V10
-Deep Intel update: Munich, Salzburg and Nuremberg join Vienna as richer destination hubs; expanded food intelligence; seasonal late-Oct/Nov/early-Dec scoring; Discover screen; smart sightseeing clusters; richer flight fare framing; stronger non-critical country borders. Corrected V9 startup architecture retained.
+# Augsburg Adventure Radius V11
+
+## Major changes
+- Date-aware 2026 event layer for the late-October through early-December travel window.
+- Confirmed Christmas markets and seasonal events in Augsburg, Munich, Nuremberg, Salzburg, Vienna and Prague.
+- Master list directly below the map.
+- Map markers and master list are generated from the same filtered state.
+- Search and sorting in the master list.
+- Tap marker -> corresponding list item highlights.
+- Tap list item -> map zooms to the marker and opens its details.
+- Event date-range controls update both map and list.
+- Existing V10 travel, priority, category, airfare, favorites, skip, mini-trip, food and destination-hub systems retained.
