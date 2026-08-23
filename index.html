@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f5f2ea"><title>Augsburg Adventure Radius V12.1</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f5f2ea"><title>Augsburg Adventure Radius V12.2</title>
 <link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"><link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 <style>
 *{box-sizing:border-box}html,body{height:100%;margin:0}body{font:14px/1.38 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f5f2ea;color:#26332e}button,input,select{font:inherit}button{border:1px solid #c7cec9;background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}button.on{background:#174f47;color:#fff;border-color:#174f47}header{height:62px;padding:8px 14px;border-bottom:1px solid #d8ddd8;display:flex;align-items:center;justify-content:space-between}h1{font-size:19px;margin:0}.sub,.muted{color:#6c7772}.sub{font-size:11px}.app{height:calc(100dvh - 62px);display:grid;grid-template-columns:1fr 390px}.mapcol{min-width:0;display:grid;grid-template-rows:minmax(360px,58%) minmax(220px,42%);overflow:hidden}#map{height:100%;background:#dfe8e4}#master{overflow:auto;background:#f8f7f2;border-top:1px solid #cfd5d1;padding:10px 12px}.masterHead{display:flex;justify-content:space-between;gap:10px;align-items:center;position:sticky;top:-10px;background:#f8f7f2;padding:8px 0;z-index:5}.masterTools{display:flex;gap:6px}.masterTools input{min-width:220px}.masterItem{display:grid;grid-template-columns:38px 1fr auto;gap:9px;align-items:center;padding:10px 4px;border-top:1px solid #dde2de;cursor:pointer}.masterItem:hover{background:#eef2ef}.masterIcon{font-size:22px;text-align:center}.masterMeta{font-size:11px;color:#6c7772}.masterActions button{padding:6px 8px}.eventPin{width:30px;height:30px;border-radius:9px;background:#b05a18;color:white;border:3px solid white;box-shadow:0 2px 8px #0005;display:flex;align-items:center;justify-content:center;font-size:16px}.dateTag{background:#fff0df;color:#87430f}aside{overflow:auto;background:#fcfbf7;border-left:1px solid #d5dad6;padding:13px}.panel{position:absolute;z-index:900;left:12px;top:72px;width:min(720px,calc(100vw - 430px));background:#f8f6f0ee;backdrop-filter:blur(8px);border:1px solid #cfd5d1;border-radius:14px;padding:8px;box-shadow:0 4px 16px #0002}.row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:5px 0}.label{width:105px;font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.05em;color:#65716b}.badge{display:inline-block;background:#edf1ee;border-radius:999px;padding:3px 7px;margin:2px;font-size:11px}.tabs{display:flex;gap:4px;position:sticky;top:-13px;background:#fcfbf7;padding:7px 0;z-index:2}.tabs button{flex:1;padding:7px 3px}.pane{display:none}.pane.on{display:block}.item{border-top:1px solid #e1e5e1;padding:10px 0}.item:first-child{border-top:0}.why{background:#edf3ef;border-radius:10px;padding:10px;margin:9px 0}.fare{font-size:25px;font-weight:850;color:#245c98}.empty{text-align:center;color:#6c7772;padding:22px 6px}.actions{display:flex;gap:5px;margin:7px 0}.actions button{flex:1}.fav.on{background:#a82d50}.skip.on{background:#4f5754}.trip.on{background:#315c9b}.gm{width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 7px #0006;display:flex;align-items:center;justify-content:center;font-size:11px}.essential{background:#d53d3d}.major{background:#176f9f}.gem{background:#7d4bb3}.worth{background:#21835b}.nearby{background:#69756f}.hub{width:38px;height:38px;border-radius:50%;background:#7a2f82;color:white;border:3px solid white;box-shadow:0 2px 9px #0007;display:flex;align-items:center;justify-content:center;font-size:20px}.fm{background:#315c9b;color:white;border:2px solid white;border-radius:14px;padding:4px 7px;font-size:11px;font-weight:850;white-space:nowrap;box-shadow:0 2px 8px #0005}.savedDot{outline:3px solid #ffb3c7}.tripbar{border:1px solid #d9ddd9;background:#f1f4f2;border-radius:10px;padding:9px;margin:8px 0}.day{border-left:3px solid #315c9b;padding-left:8px;margin:9px 0}.mobile{display:none}.legend{font-size:11px}.legend span{margin-right:8px;white-space:nowrap}
@@ -13,7 +13,7 @@ header{background:rgba(250,249,245,.96);backdrop-filter:blur(14px);border-bottom
 .row button{border-radius:999px;border:1px solid #d8dfda;background:#fff;padding:7px 10px}.row button.on{background:#1f5b49;color:#fff;border-color:#1f5b49}
 #sheet{position:relative;background:var(--paper);transition:width .22s ease,transform .22s ease}
 #closeDetail{position:absolute;right:10px;top:10px;width:34px;height:34px;font-size:23px;z-index:20}
-.app.detailsClosed{grid-template-columns:1fr 0}.app.detailsClosed #sheet{width:0;overflow:hidden;border:0}
+.app.detailsClosed{grid-template-columns:1fr}.app.detailsClosed #sheet{display:none}
 .item,.discoverCard,.masterItem{border-radius:13px}.item{background:#fff;border:1px solid var(--line);padding:11px;margin:8px 0}
 .masterItem{background:#fff;margin:7px 0;padding:11px;border:1px solid var(--line);box-shadow:0 2px 8px rgba(30,50,40,.05)}
 .masterItem:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(30,50,40,.09)}
@@ -24,8 +24,28 @@ header{background:rgba(250,249,245,.96);backdrop-filter:blur(14px);border-bottom
 body.detail-open .mapcol{min-width:0}
 @media(min-width:851px) and (max-width:1180px){.app{grid-template-columns:1fr 0}.app.detail-open #sheet{position:fixed;right:0;top:62px;bottom:0;width:min(420px,44vw);z-index:900;box-shadow:-12px 0 32px #0002}.app.detail-open{grid-template-columns:1fr 0}.panel{max-width:calc(100vw - 24px)}}
 @media(max-width:850px){#filters{position:fixed;top:64px;left:8px;right:8px;width:auto;z-index:800}.panel.collapsed{right:auto}.app.detail-open #sheet{display:block;position:fixed;left:8px;right:8px;bottom:8px;top:auto;width:auto;max-height:68dvh;z-index:1000;border-radius:20px;box-shadow:0 -10px 40px #0003}.app.detailsClosed #sheet{display:none}.masterItem{margin:8px 0}}
+
+/* V12.2 layout repair: controls never obscure or erase the map */
+#filters{position:relative!important;top:auto!important;left:auto!important;right:auto!important;width:auto!important;max-width:none!important;margin:8px 10px 0;z-index:20;box-shadow:0 4px 14px rgba(25,40,33,.08)}
+#filters.panel.collapsed{min-width:0;width:auto!important}
+#filters.panel.collapsed .filterTop{margin:0}
+#filters.panel.collapsed #filterBody{display:none}
+.app{height:auto!important;min-height:calc(100dvh - 150px)}
+.mapcol{grid-template-rows:minmax(430px,58dvh) minmax(260px,auto)!important}
+#map{min-height:430px!important}
+@media(min-width:851px) and (max-width:1180px){
+ #filters{margin:7px 10px 0!important}
+ .app{height:auto!important}
+ .mapcol{grid-template-rows:minmax(480px,60dvh) minmax(260px,auto)!important}
+ #map{min-height:480px!important}
+}
+@media(max-width:850px){
+ #filters{position:relative!important;top:auto!important;left:auto!important;right:auto!important;margin:7px 8px 0!important}
+ .app{padding-top:0!important}
+ #map{height:52dvh!important;min-height:350px!important}
+}
 </style></head><body>
-<header><div><h1>Augsburg Adventure Radius <span class="muted">V12.1</span></h1><div class="sub">Atlas • deeper destination intel • polished responsive travel planning</div></div><div><button id="discoverBtn">🧭 Discover</button><button id="savedBtn">❤️ Saved</button><button id="tripsBtn">🧳 Trips</button></div></header>
+<header><div><h1>Augsburg Adventure Radius <span class="muted">V12.2</span></h1><div class="sub">Atlas • deeper destination intel • polished responsive travel planning</div></div><div><button id="discoverBtn">🧭 Discover</button><button id="savedBtn">❤️ Saved</button><button id="tripsBtn">🧳 Trips</button></div></header>
 <div class="mobile"><button id="mfilters">☰ Filters</button><button id="mhome">⌂ Augsburg</button><button id="mexpand">↕ Details</button></div>
 <div id="filters" class="panel">
 <div class="row"><span class="label">Travel</span><button id="drive" class="on">🚗 Drive</button><button id="train" class="on">🚆 Train</button><button id="flights">✈️ Flights</button></div>
@@ -67,15 +87,16 @@ const ground=L.markerClusterGroup({maxClusterRadius:45,disableClusteringAtZoom:1
 const detail=document.getElementById("detail"),sheet=document.getElementById("sheet"),gm=[],fm=[],hm=[],em=[];
 
 const appShell=document.querySelector(".app"),filtersPanel=document.getElementById("filters"),filterBody=document.getElementById("filterBody");
+const driveBtn=document.getElementById("drive"),trainBtn=document.getElementById("train"),flightsBtn=document.getElementById("flights"),flightRowsEl=document.getElementById("flightRows"),discoverBtnEl=document.getElementById("discoverBtn"),savedBtnEl=document.getElementById("savedBtn"),tripsBtnEl=document.getElementById("tripsBtn"),mfiltersEl=document.getElementById("mfilters"),mhomeEl=document.getElementById("mhome"),mexpandEl=document.getElementById("mexpand");
 function openDetails(){appShell.classList.remove("detailsClosed");appShell.classList.add("detail-open")}
-function closeDetails(){appShell.classList.add("detailsClosed");appShell.classList.remove("detail-open");document.querySelectorAll(".masterItem").forEach(x=>x.style.background="")}
+function closeDetails(){appShell.classList.add("detailsClosed");appShell.classList.remove("detail-open");selectedMasterId=null;document.querySelectorAll(".masterItem").forEach(x=>x.style.background="");setTimeout(()=>map.invalidateSize(),80)}
 document.getElementById("closeDetail").onclick=closeDetails;
 document.getElementById("collapseFilters").onclick=()=>{let c=filtersPanel.classList.toggle("collapsed");document.getElementById("collapseFilters").textContent=c?"+":"−";setTimeout(()=>map.invalidateSize(),180)};
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDetails()});
 closeDetails();
 
 function key(type,name){return type+":"+name}function cls(pr){if(pr.includes("Essential"))return"essential";if(pr.includes("Major"))return"major";if(pr.includes("Gem"))return"gem";if(pr.includes("Nearby"))return"nearby";return"worth"}
-function gi(p){let k=key("p",p.name),c=cls(p.priority)+(fav[k]?" savedDot":"");return L.divIcon({className:"",html:'<div class="gm '+c+'">'+(p.priority.includes("Essential")?"!":p.priority.includes("Gem")?"◆":"")+'</div>',iconSize:[34,34],iconAnchor:[17,17]})}
+function gi(p){let k=key("p",p.name),pm=priorityMeta(p.priority),glyph=typeIcon(p.cat),saved=fav[k]?" savedDot":"";return L.divIcon({className:"",html:'<div class="poiPin '+pm.cls+saved+'" title="'+pm.label+' · '+p.cat+'">'+glyph+'</div>',iconSize:pm.cls==="essential"?[46,46]:[40,40],iconAnchor:pm.cls==="essential"?[23,23]:[20,20]})}
 function fi(f){return L.divIcon({className:"",html:'<div class="fm">$'+f.fare+' '+f.city+'</div>',iconSize:[92,28],iconAnchor:[46,14]})}
 function hi(){return L.divIcon({className:"",html:'<div class="hub">★</div>',iconSize:[44,44],iconAnchor:[22,22]})}
 P.forEach(p=>{let m=L.marker([p.lat,p.lon],{icon:gi(p)});m.on("click",()=>{if(selectedMasterId==="p:"+p.name&&appShell.classList.contains("detail-open")){closeDetails();selectedMasterId=null}else{showP(p);highlightMaster("p:"+p.name)}});gm.push({p,m,on:false})});F.forEach(f=>{let m=L.marker([f.lat,f.lon],{icon:fi(f)});m.on("click",()=>{if(selectedMasterId==="f:"+f.city&&appShell.classList.contains("detail-open")){closeDetails();selectedMasterId=null}else{showF(f);highlightMaster("f:"+f.city)}});fm.push({f,m,on:false})});
@@ -127,20 +148,11 @@ window.newTrip=()=>{let n=prompt("Trip name","Vienna — 2 Days");if(n){trips.pu
 function seasonHTML(city){let s=SEASON[city];return s?'<h3>Season intelligence</h3><div class="season"><div><b>Late Oct</b><br>'+s[0]+'/10</div><div><b>November</b><br>'+s[1]+'/10</div><div><b>Early Dec</b><br>'+s[2]+'/10</div></div><div class="muted">'+s[3]+'</div>':""}
 function clusterHTML(city){let c=CLUSTERS[city]||[];return c.length?'<h3>Smart clusters</h3>'+c.map(x=>'<div class="cluster"><b>'+x[0]+'</b><br>'+x.slice(1).join(" → ")+'</div>').join(""):""}
 function renderDiscover(){let cheap=F.slice().sort((a,b)=>a.fareLow-b.fareLow).slice(0,8);let sea=Object.entries(SEASON).sort((a,b)=>+b[1][2]-+a[1][2]).slice(0,7);detail.innerHTML='<h2>🧭 Discover</h2><h3>✈️ Cheapest flight ideas</h3>'+cheap.map(f=>'<div class="discoverCard"><b>'+f.city+', '+f.country+'</b> <span class="badge">from ~$'+f.fareLow+' RT</span><br><span class="muted">Good-fare target '+f.fareGood+'</span><br>'+f.why+'</div>').join("")+'<h3>🎄 Best early-December trips</h3>'+sea.map(x=>'<div class="discoverCard"><b>'+x[0]+'</b> <span class="badge">'+x[1][2]+'/10</span><br>'+x[1][3]+'</div>').join("")}
-discoverBtn.onclick=renderDiscover;
-savedBtn.onclick=()=>{let ks=Object.keys(fav);detail.innerHTML='<h2>❤️ Favorites</h2>'+(ks.length?ks.map(k=>'<div class="item">'+k.split(":").slice(1).join(":")+'</div>').join(""):'<div class="empty">Nothing saved yet.</div>')+'<h3>🚫 Skip List</h3>'+Object.keys(skip).map(k=>'<div class="item">'+k.split(":").slice(1).join(":")+'</div>').join("")};tripsBtn.onclick=renderTrips;
-drive.onclick=function(){S.drive=!S.drive;this.classList.toggle("on",S.drive);sync()};train.onclick=function(){S.train=!S.train;this.classList.toggle("on",S.train);sync()};flights.onclick=function(){S.flights=!S.flights;this.classList.toggle("on",S.flights);flightRows.style.display=S.flights?"block":"none";if(S.flights)map.setView([48,8],4);sync()};
+discoverBtnEl.onclick=()=>{openDetails();renderDiscover()};
+savedBtnEl.onclick=()=>{openDetails();let ks=Object.keys(fav);detail.innerHTML='<h2>❤️ Favorites</h2>'+(ks.length?ks.map(k=>'<div class="item">'+k.split(":").slice(1).join(":")+'</div>').join(""):'<div class="empty">Nothing saved yet.</div>')+'<h3>🚫 Skip List</h3>'+Object.keys(skip).map(k=>'<div class="item">'+k.split(":").slice(1).join(":")+'</div>').join("")};tripsBtnEl.onclick=()=>{openDetails();renderTrips()};
+driveBtn.onclick=function(){S.drive=!S.drive;this.classList.toggle("on",S.drive);sync()};trainBtn.onclick=function(){S.train=!S.train;this.classList.toggle("on",S.train);sync()};flightsBtn.onclick=function(){S.flights=!S.flights;this.classList.toggle("on",S.flights);flightRowsEl.style.display=S.flights?"block":"none";if(S.flights)map.setView([48,8],4);sync()};
 document.querySelectorAll("[data-h]").forEach(b=>b.onclick=()=>{S.hours=+b.dataset.h;document.querySelectorAll("[data-h]").forEach(x=>x.classList.toggle("on",x===b));sync()});document.querySelectorAll("[data-pr]").forEach(b=>b.onclick=()=>{S.priority=b.dataset.pr;document.querySelectorAll("[data-pr]").forEach(x=>x.classList.toggle("on",x===b));sync()});document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{S.cat=b.dataset.cat;document.querySelectorAll("[data-cat]").forEach(x=>x.classList.toggle("on",x===b));sync()});document.querySelectorAll("[data-fare]").forEach(b=>b.onclick=()=>{S.fare=+b.dataset.fare;document.querySelectorAll("[data-fare]").forEach(x=>x.classList.toggle("on",x===b));sync()});
-mfilters.onclick=()=>filters.classList.toggle("open");mhome.onclick=()=>map.setView([48.3705,10.8978],10);mexpand.onclick=()=>sheet.classList.toggle("expanded");sync();
-// Non-critical country-border overlay. Failure never blocks the app.
-(function addCountryBorders(){
-  const url="https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson";
-  fetch(url,{cache:"force-cache"}).then(r=>{if(!r.ok)throw new Error("border fetch");return r.json()}).then(data=>{
-    L.geoJSON(data,{
-      pane:"overlayPane",
-      interactive:false,
-      style:{color:"#34413d",weight:3.0,opacity:.86,fill:false,lineCap:"round",lineJoin:"round"}
-    }).addTo(map).bringToBack();
-  }).catch(()=>{});
-})();if("serviceWorker"in navigator)navigator.serviceWorker.register("./sw.js");
+if(mfiltersEl)mfiltersEl.onclick=()=>filtersPanel.classList.toggle("open");if(mhomeEl)mhomeEl.onclick=()=>map.setView([48.3705,10.8978],10);if(mexpandEl)mexpandEl.onclick=()=>sheet.classList.toggle("expanded");
+try{sync();setTimeout(()=>map.invalidateSize(),120)}catch(err){console.error(err);document.getElementById("resultCount").textContent="Map startup error — refresh";}
+if("serviceWorker"in navigator)navigator.serviceWorker.register("./sw.js");
 </script></body></html>
