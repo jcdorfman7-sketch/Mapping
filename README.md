@@ -1,10 +1,11 @@
-# V13.1 — Phone stabilization
-- Phone-only breakpoint at <=600px. iPad/desktop V13 behavior is left intact.
-- Full result database retained on phone.
-- Filters start collapsed on phones.
-- Map is always visible during phone initialization; Map/Results controls scroll instead of hiding/reconstructing Leaflet.
-- Repeated Leaflet size invalidation after phone layout settles and after resize/orientation changes.
-- Country-border decorative overlay is skipped on phones only; attractions/events/flights/food are not reduced.
-- More prominent internal scrollbars for filters and results where the browser exposes custom scrollbars.
-- Visible “Results below” cue and “Back to map” control.
-- Details remain closed until a place is selected.
+# V13.2 — rebuilt phone interface
+Phone <=600px only:
+- Removed legacy Filters/Augsburg/Details mobile toolbar.
+- Dedicated Filters launcher and overlay; filters never sit behind navigation.
+- Map has a permanent 420px phone height and remains in layout at all times.
+- Details are a fixed bottom overlay and cannot resize/reflow the map.
+- Opening/closing details preserves map center and zoom.
+- Full result dataset retained.
+- Results list remains bounded and scrollable with a visible scroll affordance.
+- Phone map receives delayed post-layout Leaflet invalidation.
+iPad and desktop V13 behavior remains untouched.
