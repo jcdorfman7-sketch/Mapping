@@ -1,8 +1,8 @@
 {
-  "name": "Augsburg Adventure Radius V11",
-  "short_name": "Augsburg Trips",
+  "name": "Augsburg Adventure Radius V12 \u2014 Atlas",
+  "short_name": "Augsburg Atlas",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f5f2ea",
-  "theme_color": "#f5f2ea"
+  "background_color": "#f7f6f1",
+  "theme_color": "#f7f6f1"
 }

@@ -1,12 +1,34 @@
-# Augsburg Adventure Radius V11
+# Augsburg Adventure Radius V12 — Atlas
 
-## Major changes
-- Date-aware 2026 event layer for the late-October through early-December travel window.
-- Confirmed Christmas markets and seasonal events in Augsburg, Munich, Nuremberg, Salzburg, Vienna and Prague.
-- Master list directly below the map.
-- Map markers and master list are generated from the same filtered state.
-- Search and sorting in the master list.
-- Tap marker -> corresponding list item highlights.
-- Tap list item -> map zooms to the marker and opens its details.
-- Event date-range controls update both map and list.
-- Existing V10 travel, priority, category, airfare, favorites, skip, mini-trip, food and destination-hub systems retained.
+V12 is the visual-polish and architecture release.
+
+## GUI
+- Cleaner Atlas visual system, cards, spacing and typography.
+- Collapsible filter panel to reclaim map space.
+- Dismissible details panel with × and Escape support.
+- Closing details reclaims desktop map width.
+- Tablet uses an overlay details panel so the map is not squeezed.
+- Phone uses a dismissible bottom-style details sheet.
+- Tapping the same selected marker again closes its details.
+
+## Canonical visual language
+Importance and place type are now separate:
+- 🔥 Essential
+- ⭐ Major
+- 💎 Hidden Gem
+- 👍 Worthwhile
+- 🏰 Castle / Palace
+- 🏛️ Museum / History
+- ⛪ Architecture
+- 🌲 Nature
+- 🍴 Food
+- 📅 Event
+- ✈️ Flight
+
+The legend, filters, list and ground markers use the same meanings.
+
+## Architecture
+Travel data has been separated from index.html into data/travel-data.js. This is the first step toward making future destination-intelligence expansions safer.
+
+## Retained
+V11 synchronized map/master list, date-aware events, Discover, favorites, skip, mini trips, seasonal intelligence, flight filters and non-critical country borders are retained.
