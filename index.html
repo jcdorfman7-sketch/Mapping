@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f5f2ea"><title>Augsburg Adventure Radius V13.3</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f5f2ea"><title>Augsburg Adventure Radius V13.4</title>
 <link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"><link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
 <style>
 *{box-sizing:border-box}html,body{height:100%;margin:0}body{font:14px/1.38 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f5f2ea;color:#26332e}button,input,select{font:inherit}button{border:1px solid #c7cec9;background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}button.on{background:#174f47;color:#fff;border-color:#174f47}header{height:62px;padding:8px 14px;border-bottom:1px solid #d8ddd8;display:flex;align-items:center;justify-content:space-between}h1{font-size:19px;margin:0}.sub,.muted{color:#6c7772}.sub{font-size:11px}.app{height:calc(100dvh - 62px);display:grid;grid-template-columns:1fr 390px}.mapcol{min-width:0;display:grid;grid-template-rows:minmax(360px,58%) minmax(220px,42%);overflow:hidden}#map{height:100%;background:#dfe8e4}#master{overflow:auto;background:#f8f7f2;border-top:1px solid #cfd5d1;padding:10px 12px}.masterHead{display:flex;justify-content:space-between;gap:10px;align-items:center;position:sticky;top:-10px;background:#f8f7f2;padding:8px 0;z-index:5}.masterTools{display:flex;gap:6px}.masterTools input{min-width:220px}.masterItem{display:grid;grid-template-columns:38px 1fr auto;gap:9px;align-items:center;padding:10px 4px;border-top:1px solid #dde2de;cursor:pointer}.masterItem:hover{background:#eef2ef}.masterIcon{font-size:22px;text-align:center}.masterMeta{font-size:11px;color:#6c7772}.masterActions button{padding:6px 8px}.eventPin{width:30px;height:30px;border-radius:9px;background:#b05a18;color:white;border:3px solid white;box-shadow:0 2px 8px #0005;display:flex;align-items:center;justify-content:center;font-size:16px}.dateTag{background:#fff0df;color:#87430f}aside{overflow:auto;background:#fcfbf7;border-left:1px solid #d5dad6;padding:13px}.panel{position:absolute;z-index:900;left:12px;top:72px;width:min(720px,calc(100vw - 430px));background:#f8f6f0ee;backdrop-filter:blur(8px);border:1px solid #cfd5d1;border-radius:14px;padding:8px;box-shadow:0 4px 16px #0002}.row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin:5px 0}.label{width:105px;font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.05em;color:#65716b}.badge{display:inline-block;background:#edf1ee;border-radius:999px;padding:3px 7px;margin:2px;font-size:11px}.tabs{display:flex;gap:4px;position:sticky;top:-13px;background:#fcfbf7;padding:7px 0;z-index:2}.tabs button{flex:1;padding:7px 3px}.pane{display:none}.pane.on{display:block}.item{border-top:1px solid #e1e5e1;padding:10px 0}.item:first-child{border-top:0}.why{background:#edf3ef;border-radius:10px;padding:10px;margin:9px 0}.fare{font-size:25px;font-weight:850;color:#245c98}.empty{text-align:center;color:#6c7772;padding:22px 6px}.actions{display:flex;gap:5px;margin:7px 0}.actions button{flex:1}.fav.on{background:#a82d50}.skip.on{background:#4f5754}.trip.on{background:#315c9b}.gm{width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 7px #0006;display:flex;align-items:center;justify-content:center;font-size:11px}.essential{background:#d53d3d}.major{background:#176f9f}.gem{background:#7d4bb3}.worth{background:#21835b}.nearby{background:#69756f}.hub{width:38px;height:38px;border-radius:50%;background:#7a2f82;color:white;border:3px solid white;box-shadow:0 2px 9px #0007;display:flex;align-items:center;justify-content:center;font-size:20px}.fm{background:#315c9b;color:white;border:2px solid white;border-radius:14px;padding:4px 7px;font-size:11px;font-weight:850;white-space:nowrap;box-shadow:0 2px 8px #0005}.savedDot{outline:3px solid #ffb3c7}.tripbar{border:1px solid #d9ddd9;background:#f1f4f2;border-radius:10px;padding:9px;margin:8px 0}.day{border-left:3px solid #315c9b;padding-left:8px;margin:9px 0}.mobile{display:none}.legend{font-size:11px}.legend span{margin-right:8px;white-space:nowrap}
@@ -131,8 +131,31 @@ body.detail-open .mapcol{min-width:0}
  .poiPin{transform:scale(.88);transform-origin:center}
  .cityNameLabel{font-size:10px!important}
 }
+
+/* ===== V13.4 HARD iPHONE RECOVERY — FINAL OVERRIDE ===== */
+@media screen and (max-width:600px){
+ html,body{width:100%!important;min-width:0!important;max-width:none!important;height:auto!important;min-height:100%!important;margin:0!important;padding:0!important;overflow-x:hidden!important;overflow-y:auto!important}
+ body{display:block!important;position:static!important}
+ header{position:relative!important;display:flex!important;flex-wrap:wrap!important;align-items:flex-start!important;justify-content:space-between!important;width:100%!important;height:auto!important;min-height:0!important;margin:0!important;padding:10px!important;box-sizing:border-box!important}
+ h1{width:44%!important;max-width:44%!important;margin:0!important;font-size:17px!important;line-height:1.05!important}
+ .topBtns{display:flex!important;flex:1 1 50%!important;flex-wrap:wrap!important;justify-content:flex-end!important;gap:3px!important;width:auto!important;max-width:56%!important}
+ .topBtns button{display:inline-block!important;width:auto!important;min-width:0!important;height:auto!important;padding:6px 8px!important;font-size:11px!important}
+ .mobile{display:none!important}
+ .app{display:block!important;position:relative!important;width:100%!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;overflow:visible!important}
+ .mapcol,.mapcol.mobile-map,.mapcol.mobile-list{display:block!important;position:relative!important;width:100%!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;overflow:visible!important;flex:none!important;transform:none!important}
+ #phoneSimpleBar,.phoneSimpleBar{display:flex!important;position:relative!important;width:100%!important;height:auto!important;box-sizing:border-box!important;gap:6px!important;padding:7px 8px!important;margin:0!important;visibility:visible!important;opacity:1!important}
+ .phoneSimpleBar button{display:block!important;flex:1 1 0!important;min-width:0!important;min-height:40px!important;padding:8px!important}
+ #activeSummary,.activeSummary{display:flex!important;position:relative!important;width:100%!important;height:auto!important;min-height:38px!important;box-sizing:border-box!important;margin:0!important;padding:5px 8px!important;visibility:visible!important;opacity:1!important}
+ #map,.mapcol #map,.mapcol.mobile-map #map,.mapcol.mobile-list #map{display:block!important;position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;width:100%!important;height:430px!important;min-height:430px!important;max-height:430px!important;margin:0!important;padding:0!important;box-sizing:border-box!important;overflow:hidden!important;flex:none!important;visibility:visible!important;opacity:1!important;transform:none!important;z-index:1!important}
+ #map.leaflet-container,.leaflet-container{display:block!important;width:100%!important;height:430px!important;min-height:430px!important;visibility:visible!important;opacity:1!important}
+ #map .leaflet-map-pane,#map .leaflet-tile-pane,#map .leaflet-overlay-pane,#map .leaflet-marker-pane,#map .leaflet-shadow-pane{visibility:visible!important;opacity:1!important}
+ #phoneScrollCue,.phoneScrollCue{display:flex!important;position:relative!important;width:100%!important;box-sizing:border-box!important;visibility:visible!important;opacity:1!important}
+ .mobileBrowseBar{display:none!important}
+ #master,.mapcol.mobile-map #master,.mapcol.mobile-list #master{display:flex!important;position:relative!important;width:auto!important;height:310px!important;max-height:310px!important;min-height:200px!important;margin:8px!important;padding:8px!important;box-sizing:border-box!important;overflow:hidden!important;visibility:visible!important;opacity:1!important;transform:none!important}
+ #masterList{display:block!important;width:100%!important;min-height:0!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important}
+}
 </style></head><body>
-<header><div><h1>Augsburg Adventure Radius <span class="muted">V13.3</span></h1><div class="sub">Atlas V13.3 • phone recovery • clearer cities</div></div><div><button id="discoverBtn">🧭 Discover</button><button id="savedBtn">❤️ Saved</button><button id="tripsBtn">🧳 Trips</button></div></header>
+<header><div><h1>Augsburg Adventure Radius <span class="muted">V13.4</span></h1><div class="sub">Atlas V13.4 • hard iPhone recovery • clearer cities</div></div><div><button id="discoverBtn">🧭 Discover</button><button id="savedBtn">❤️ Saved</button><button id="tripsBtn">🧳 Trips</button></div></header>
 <div class="mobile"><button id="mfilters">☰ Filters</button><button id="mhome">⌂ Augsburg</button><button id="mexpand">↕ Details</button></div>
 <div id="filters" class="panel">
 <div class="filterTop"><b>Explore</b><button id="collapseFilters" type="button" aria-label="Collapse filters">−</button></div>
@@ -270,4 +293,27 @@ if(matchMedia("(max-width:600px)").matches){
 }
 try{sync();setTimeout(()=>map.invalidateSize(),120)}catch(err){console.error(err);document.getElementById("resultCount").textContent="Map startup error — refresh";}
 if("serviceWorker"in navigator)navigator.serviceWorker.register("./sw.js");
-</script></body></html>
+</script>
+<script>
+(function(){
+ function repairMobileMap(){
+   if(window.innerWidth>600)return;
+   var el=document.getElementById("map");
+   if(!el)return;
+   el.style.display="block";el.style.position="relative";el.style.width="100%";
+   el.style.height="430px";el.style.minHeight="430px";el.style.visibility="visible";el.style.opacity="1";
+   try{
+     if(typeof map!=="undefined"&&map&&typeof map.invalidateSize==="function"){
+       map.invalidateSize({pan:false});
+       [100,400,1000].forEach(function(t){setTimeout(function(){map.invalidateSize({pan:false})},t)});
+     }
+   }catch(e){console.error("V13.4 mobile recovery",e)}
+ }
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",repairMobileMap);else repairMobileMap();
+ window.addEventListener("load",repairMobileMap);
+ window.addEventListener("orientationchange",function(){setTimeout(repairMobileMap,250)});
+ var rt;window.addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(repairMobileMap,150)},{passive:true});
+})();
+</script>
+
+</body></html>
