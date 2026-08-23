@@ -1,6 +1,9 @@
-# V12.4 — live repository fix
-The deployed V12.3 index.html was inspected directly in GitHub.
-
-Root cause: the JavaScript bound a click handler to `#collapseFilters`, but the actual HTML did not contain `#collapseFilters` or `#filterBody`. `document.getElementById("collapseFilters").onclick = ...` therefore threw immediately and halted initialization before marker creation, master-list rendering, and the remaining button handlers.
-
-V12.4 restores the missing filter header/body markup and makes the collapse binding defensive so an optional missing control cannot kill the application again.
+# V13 — Clarity + Mobile
+- Compact map key: icon = type, importance = ranking.
+- Filters grouped as GET THERE / IMPORTANCE / SHOW ME.
+- Map-marker clicks no longer scroll the page to the master list.
+- Explicit View in list button.
+- Master list is a bounded scrolling box.
+- Dedicated iPhone Map / Results modes and mobile details sheet.
+- Active-filter summary above the map.
+- V12.4 startup repairs retained.
