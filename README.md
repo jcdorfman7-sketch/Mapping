@@ -1,19 +1,14 @@
-# Augsburg Adventure Radius V14.1
+# Augsburg Adventure Radius V14.4
 
-Major core-guide release.
+Combined V14.2–V14.4 release.
 
-- Preserves the V13.5/V14 working mobile structure.
-- Adds globally unique IDs and future-ready photo/transport/related-item fields.
-- Adds Dachau Concentration Camp Memorial Site and other major historical omissions.
-- Merges See into Overview.
-- Expands Overview text model.
-- Rebuilds Trips as richer Combine With cards with per-item Save/Skip controls.
-- Adds Saved-only map filter.
-- Shrinks normal POI markers and improves cluster spiderfying.
-- Separates event tiers from attraction importance.
-- Adds non-Christmas events including lab30, Tokio Hotel and Winter Tollwood.
-- Core POIs: 102
-- Events: 19
-
-V14.2 architecture hooks are present for cloud accounts, export/sharing and photos.
-V14.4 transport fields are present but intentionally not populated with fake precision.
+- Selected POI marker grows to ~2x size and is raised above nearby markers; selecting another resets the old marker.
+- Saved-only map filter retained.
+- Portable Save/Skip/Trip export + restore JSON added.
+- Stable global IDs/cloud adapter architecture retained; real account login still needs backend credentials.
+- Photo slots/lazy-loading architecture added to every overview; image population remains incomplete rather than using unlicensed/hotlinked imagery.
+- Extended destination database expanded to 142 major sights across 27 flight destinations, including deep Rome and Paris guides.
+- Paris added as an extended destination.
+- Core rail destinations now have route-aware Augsburg Hbf planning estimates, transfer counts, fare guidance, service type and Deutschlandticket notes.
+- DB benchmark verified Aug 2026: Augsburg–Munich fastest ~27 min direct; observed fares €12.99–€21.30 depending service/time.
+- Four-file root deployment preserved.
