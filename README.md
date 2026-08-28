@@ -1,12 +1,14 @@
-# Augsburg Adventure Radius V14.5
+# Augsburg Adventure Radius V14.4
 
-No-account save + image-library release.
+Combined V14.2–V14.4 release.
 
-- Favorites, Skips and Trips remain stored locally and survive normal site updates.
-- Copy Save Code creates a portable backup of all three lists.
-- Restore Code recovers that state on another browser/device without an account or backend.
-- Saved-only map filtering remains available.
-- Every attraction Overview now automatically requests up to two relevant Wikimedia Commons images.
-- Photo results are cached into the app's local photo library after first load.
-- No image binaries are bundled, keeping the four-file GitHub upload small.
-- Selected map markers retain the enlarge-on-selection behavior.
+- Selected POI marker grows to ~2x size and is raised above nearby markers; selecting another resets the old marker.
+- Saved-only map filter retained.
+- Portable Save/Skip/Trip export + restore JSON added.
+- Stable global IDs/cloud adapter architecture retained; real account login still needs backend credentials.
+- Photo slots/lazy-loading architecture added to every overview; image population remains incomplete rather than using unlicensed/hotlinked imagery.
+- Extended destination database expanded to 142 major sights across 27 flight destinations, including deep Rome and Paris guides.
+- Paris added as an extended destination.
+- Core rail destinations now have route-aware Augsburg Hbf planning estimates, transfer counts, fare guidance, service type and Deutschlandticket notes.
+- DB benchmark verified Aug 2026: Augsburg–Munich fastest ~27 min direct; observed fares €12.99–€21.30 depending service/time.
+- Four-file root deployment preserved.
