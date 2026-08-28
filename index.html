@@ -281,56 +281,31 @@ function refreshIcons(){gm.forEach(o=>o.m.setIcon(gi(o.p,selectedMasterId==="p:"
 function tabs(o,s,e,t){detail.innerHTML='<div class="tabs"><button class="on" data-t="o">Overview</button><button data-t="e">Eat</button><button data-t="t">Trips</button></div><div id="po" class="pane on">'+o+(s||"")+'</div><div id="pe" class="pane">'+e+'</div><div id="pt" class="pane">'+t+'</div>';detail.querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>{detail.querySelectorAll("[data-t]").forEach(x=>x.classList.remove("on"));b.classList.add("on");detail.querySelectorAll(".pane").forEach(x=>x.classList.remove("on"));document.getElementById("p"+b.dataset.t).classList.add("on")})}
 function relatedHTML(p){if(!p.related||!p.related.length)return"";return '<div class="sec"><h3>Combine with</h3><div class="muted">Good additions when you are already making this trip.</div>'+p.related.map(r=>{let fk=key("p",r.name),isFav=!!fav[fk],isSkip=!!skip[fk];return '<div class="relatedCard"><b>'+r.name+'</b><div>'+r.why+'</div><div class="muted">'+(r.extra?'Allow '+r.extra:'')+'</div><div class="relActions"><button onclick="toggleRelatedFav(\''+r.name.replace(/'/g,"\\'")+'\')">'+(isFav?'♥ Saved':'♡ Save')+'</button><button onclick="toggleRelatedSkip(\''+r.name.replace(/'/g,"\\'")+'\')">'+(isSkip?'↩ Unskip':'⊘ Skip')+'</button></div></div>'}).join("")+'</div>'}function toggleRelatedFav(n){let k=key("p",n);fav[k]=!fav[k];store.set("v9_favorites",fav);sync()}function toggleRelatedSkip(n){let k=key("p",n);skip[k]=!skip[k];store.set("v9_skip",skip);sync()}
 
-/* V15.1.1 robust attraction-photo resolver */
-const V151_PHOTO_CACHE="v151_photo_cache";
+/* V15.1 photo hotfix */
+const V151_PHOTO_CACHE="v151_photo_cache_fix1";
 let v15PhotoCache=store.get(V151_PHOTO_CACHE,{});
 function v15PhotoBoxId(x){return "ph_"+String(x.id||x.name).replace(/[^a-zA-Z0-9]/g,"_")}
 function v15GooglePhotosURL(x){return "https://www.google.com/search?tbm=isch&q="+encodeURIComponent((x.name||"")+" "+(x.city||x.parent||""))}
 function photoHTML(x){
  const id=v15PhotoBoxId(x),ck=x.id||x.name,cached=v15PhotoCache[ck]||[];
- if(cached.length)return '<div class="photoStrip" id="'+id+'">'+cached.slice(0,2).map(u=>'<img loading="lazy" referrerpolicy="no-referrer" src="'+u+'" alt="'+x.name+'">').join("")+'</div><a class="morePhotos" target="_blank" rel="noopener" href="'+v15GooglePhotosURL(x)+'">📷 More photos</a>';
+ if(cached.length)return v15RenderPhotos(x,id,cached);
  setTimeout(()=>v15HydratePhotos(x),0);
- return '<div class="photoStrip photoPending" id="'+id+'"><div class="photoStatus">📷 Loading attraction photos…</div></div><a class="morePhotos" target="_blank" rel="noopener" href="'+v15GooglePhotosURL(x)+'">📷 More photos</a>'
+ return '<div class="photoStrip photoPending" id="'+id+'"><div class="photoStatus">📷 Loading photos…</div></div><a class="morePhotos" target="_blank" rel="noopener" href="'+v15GooglePhotosURL(x)+'">📷 More photos</a>'
 }
+function v15RenderPhotos(x,id,items){return '<div class="photoStrip" id="'+id+'">'+items.slice(0,2).map(o=>'<a href="'+o.page+'" target="_blank" rel="noopener"><img loading="lazy" src="'+o.src+'" alt="'+x.name+'"></a>').join("")+'</div><a class="morePhotos" target="_blank" rel="noopener" href="'+v15GooglePhotosURL(x)+'">📷 More photos</a>'}
 async function v15FetchJSON(url){const r=await fetch(url);if(!r.ok)throw new Error("photo request");return r.json()}
-async function v15WikiThumbs(query){
- const u="https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch="+encodeURIComponent(query)+"&gsrlimit=8&prop=pageimages&piprop=thumbnail&pithumbsize=1000&format=json&origin=*";
+async function v15CommonsCandidates(query){
+ const u="https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch="+encodeURIComponent(query)+"&gsrnamespace=6&gsrlimit=10&prop=imageinfo&iiprop=url&format=json&origin=*";
  const j=await v15FetchJSON(u);
- return Object.values((j.query&&j.query.pages)||{}).sort((a,b)=>(a.index||999)-(b.index||999)).map(p=>p.thumbnail&&p.thumbnail.source).filter(Boolean)
-}
-async function v15CommonsThumbs(query){
- const u="https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch="+encodeURIComponent(query)+"&gsrnamespace=6&gsrlimit=12&prop=imageinfo&iiprop=url&iiurlwidth=1000&format=json&origin=*";
- const j=await v15FetchJSON(u);
- return Object.values((j.query&&j.query.pages)||{}).map(p=>p.imageinfo&&p.imageinfo[0]&&(p.imageinfo[0].thumburl||p.imageinfo[0].url)).filter(Boolean)
+ return Object.values((j.query&&j.query.pages)||{}).map(p=>{const title=p.title||"",file=title.replace(/^File:/,"");return {src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/"+encodeURIComponent(file)+"?width=900",page:"https://commons.wikimedia.org/wiki/"+encodeURIComponent(title.replace(/ /g,"_"))}}).filter(o=>o.src)
 }
 async function v15HydratePhotos(x){
  const box=document.getElementById(v15PhotoBoxId(x));if(!box)return;
- const ck=x.id||x.name;if(v15PhotoCache[ck]&&v15PhotoCache[ck].length)return;
- const city=x.city||x.parent||"", country=x.country||"", name=x.name||"";
- const queries=[
-   x.photoQuery||"",
-   name+" "+city,
-   '"'+name+'" '+city+" landmark",
-   name+" "+city+" "+country
- ].filter(Boolean);
- let urls=[];
- for(const q of queries){
-   try{urls.push(...await v15WikiThumbs(q))}catch(e){}
-   urls=[...new Set(urls)]; if(urls.length>=2)break;
- }
- if(urls.length<2){
-   for(const q of queries){
-     try{urls.push(...await v15CommonsThumbs(q))}catch(e){}
-     urls=[...new Set(urls)]; if(urls.length>=2)break;
-   }
- }
- urls=[...new Set(urls)].slice(0,2);
- if(urls.length){
-   v15PhotoCache[ck]=urls;store.set(V151_PHOTO_CACHE,v15PhotoCache);
-   box.innerHTML=urls.map(u=>'<img loading="lazy" referrerpolicy="no-referrer" src="'+u+'" alt="'+name+'">').join("")
- }else{
-   box.innerHTML='<a class="photoFallback" target="_blank" rel="noopener" href="'+v15GooglePhotosURL(x)+'">📷 Open photos for '+name+'</a>'
- }
+ const ck=x.id||x.name,city=x.city||x.parent||"",name=x.name||"",queries=[x.photoQuery,name+" "+city,name+" "+city+" landmark"].filter(Boolean);
+ let items=[];for(const q of queries){try{items.push(...await v15CommonsCandidates(q))}catch(e){}items=[...new Map(items.map(o=>[o.src,o])).values()];if(items.length>=2)break}
+ items=items.slice(0,2);
+ if(items.length){v15PhotoCache[ck]=items;store.set(V151_PHOTO_CACHE,v15PhotoCache);box.innerHTML=items.map(o=>'<a href="'+o.page+'" target="_blank" rel="noopener"><img loading="lazy" src="'+o.src+'" alt="'+name+'"></a>').join("")}
+ else box.innerHTML='<a class="photoFallback" target="_blank" rel="noopener" href="'+v15GooglePhotosURL(x)+'">📷 View '+name+' photos</a>'
 }
 
 function transportHTML(p){let t=p.transport;if(!t||!t.route)return'';return '<div class="transportBox"><b>'+t.quality+' from Augsburg</b><br>'+t.route+'<br><span class="muted">⏱ '+t.duration+' · '+t.transfers+' transfer(s) · '+t.service+'</span><br><b>Fare:</b> '+t.fare+'<br><b>Deutschlandticket:</b> '+t.ticket+'<br><span class="muted">Planning estimate — verify the exact date/time in DB before travel.</span></div>'}
