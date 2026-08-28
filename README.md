@@ -1,19 +1,3 @@
-# Augsburg Adventure Radius V16
+Augsburg Adventure Radius V16.1
 
-Built directly on the working V15.1 photo-hotfix architecture.
-
-## V16
-- Deutschlandticket-first transportation presentation; ICE/IC/EC are explicitly separately ticketed.
-- Toggleable 1–6 hour approximate drive-reach bubbles from Augsburg.
-- Long-press/right-click anywhere on the map for a rough Augsburg drive estimate.
-- Priority = color consistently: marker ring and clicked-attraction title background.
-- Type = center icon.
-- Destination saved counts and 1/2/3-day saved-attraction trip drafts.
-- V15.1 working Commons photo hotfix preserved.
-- Excel/Text Favorites exports and Save Code preserved.
-
-## Regression checks
-- 282 attraction records retained.
-- JavaScript syntax passes Node.
-- Critical mobile DOM hierarchy preserved.
-- Leaflet initialization, MarkerCluster, selected-marker enlargement and photo resolver retained.
+Compact drive rings; color-only priority system; destination dashboards; smarter geographic/time-aware trip builder; Nearby + Saved Nearby; destination focus; D-Ticket-first transport; paid ICE/IC/EC alternative guidance; full flight journey framing; integrated events; Worth-It score; larger hero photo presentation; grouped saved/export improvements. 282 attractions retained. JS and critical mobile DOM regression checks passed.
